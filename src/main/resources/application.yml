@@ -1,1 +1,19 @@
-spring.application.name=telemetry
+spring:
+  application:
+    name: telemetry
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+otel:
+  service:
+    name: lgtm-service
+  exporter:
+    otlp:
+      endpoint: http://localhost:4328
+  resource:
+    attributes:
+      environment: test
